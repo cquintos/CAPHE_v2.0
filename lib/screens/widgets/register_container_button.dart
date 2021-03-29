@@ -1,7 +1,6 @@
-import 'package:caphe_v2/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
-class ButtonSection extends StatelessWidget {
+class RegisterButtonSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -15,7 +14,7 @@ class ButtonSection extends StatelessWidget {
             // );
           },
           child: Text(
-            "Sign In",
+            "SUBMIT",
             style: TextStyle(
               fontWeight: FontWeight.w800,
             ),
@@ -27,9 +26,9 @@ class ButtonSection extends StatelessWidget {
         ),
         OutlinedButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen()));
+            
           },
-          child: Text("Register"),
+          child: Text("CLEAR ALL"),
           style: OutlinedButton.styleFrom(
             primary: Colors.white,
             side: BorderSide(color: Colors.white),
