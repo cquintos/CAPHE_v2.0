@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../about_screen.dart';
 
 class FooterSection extends StatelessWidget {
 
@@ -18,22 +19,14 @@ class FooterSection extends StatelessWidget {
                 Container(
                   height: deviceHeight*0.06,
                   decoration: BoxDecoration(
-                    image: DecorationImage(
-                      alignment: Alignment.topLeft,
-                      image: AssetImage("assets/dost-pcaarrd-uplb.png"),
-                    fit: BoxFit.fitHeight,
-                    )
+                    image: DecorationImage( alignment: Alignment.topLeft, image: AssetImage("assets/dost-pcaarrd-uplb.png"), fit: BoxFit.fitHeight, )
                   ),
                 ),
                 Container(
                   alignment: Alignment.bottomRight,
                   child: IconButton(
-                    icon: Icon(
-                      Icons.help,
-                      color: Colors.green.shade800,
-                      size: 50,
-                    ), 
-                    onPressed: () {  },
+                    icon: Icon( Icons.help, color: Colors.green.shade800, size: 50, ), 
+                    onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => AboutScreen())); },
                   ),
                 )
               ],

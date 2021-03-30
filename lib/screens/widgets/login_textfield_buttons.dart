@@ -1,3 +1,4 @@
+import 'package:caphe_v2/routing_constants.dart';
 import 'package:caphe_v2/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -9,6 +10,7 @@ class ButtonSection extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () {
+            Navigator.pushReplacementNamed(context, HomeScreenRoute);
             // context.read<AuthenticationService>().signIn(
             //   email: _emailController.text.trim(),
             //   password: _passwordController.text.trim(),
