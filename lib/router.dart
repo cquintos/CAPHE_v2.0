@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:caphe_v2/routing_constants.dart';
 import 'package:caphe_v2/screens/calendar_screen.dart';
 import 'package:caphe_v2/screens/home_screen.dart';
@@ -9,7 +7,7 @@ import 'package:caphe_v2/screens/tracker_screen.dart';
 import 'package:flutter/material.dart';
 
 Route<dynamic> generateRoute(RouteSettings settings) {
-  // Here we'll handle all the routing
+
   switch (settings.name) {
     case HomeScreenRoute: 
       return MaterialPageRoute(builder: (context) => HomeScreen());
