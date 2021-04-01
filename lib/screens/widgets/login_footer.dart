@@ -9,7 +9,7 @@ class FooterSection extends StatelessWidget {
 
     return Expanded(
       child: Container(
-        padding: EdgeInsets.fromLTRB(20, 0, 30, 10),
+        padding: EdgeInsets.fromLTRB(20, 10, 30, 10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
@@ -25,6 +25,7 @@ class FooterSection extends StatelessWidget {
                 Container(
                   alignment: Alignment.bottomRight,
                   child: IconButton(
+                    
                     icon: Icon( Icons.help, color: Colors.green.shade800, size: 50, ), 
                     onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => AboutScreen())); },
                   ),

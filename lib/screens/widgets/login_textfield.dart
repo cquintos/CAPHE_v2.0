@@ -14,7 +14,7 @@ class _TextfieldSectionState extends State<TextfieldSection> {
     double deviceHeight = MediaQuery.of(context).size.height;
     
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: EdgeInsets.fromLTRB(20,10,20,10),
       height: deviceHeight * 0.3,
       width: deviceWidth,
       decoration: BoxDecoration(
