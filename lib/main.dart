@@ -19,8 +19,8 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.green.shade800,
         accentColor: Colors.white,
       ),
-      // initialRoute: HomeScreenRoute,
-      initialRoute: LoginScreenRoute,
+      initialRoute: HomeScreenRoute,
+      // initialRoute: LoginScreenRoute,
     );
   }
 }
