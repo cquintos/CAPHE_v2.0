@@ -35,7 +35,7 @@ class _CardSectionState extends State<CardSection> {
       ),
       child: Row (
         children: <Widget> [
-          Expanded( flex:2, child: CardContentLeft(title: "DAYS BEFORE HARVEST", data: "295"), ),
+          Expanded( flex:2, child: CardContentLeft(title: "DAYS LEFT BEFORE HARVEST", data: "295", isPressed: false,), ),
           VerticalDivider(
             color:Colors.green.shade800,
             endIndent: 0,

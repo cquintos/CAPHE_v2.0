@@ -25,7 +25,6 @@ class _CarouselSectionState extends State<CarouselSection> {
 
     return Container (
       width: deviceWidth*.9,
-      margin: EdgeInsets.only(bottom:10),
       child: Center(
         child: Column (
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -42,6 +41,7 @@ class _CarouselSectionState extends State<CarouselSection> {
     return Column (
       children: <Widget>[
         CarouselTitleSection(),
+        // SizedBox(height:10),
         Expanded(
           child: ScrollSnapList(
             onItemFocus: _onItemFocus,

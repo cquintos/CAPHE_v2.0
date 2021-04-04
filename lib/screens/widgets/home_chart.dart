@@ -14,7 +14,7 @@ class _ChartSectionState extends State<ChartSection> {
     return Container(
       // height: MediaQuery.of(context).size.height*.8,
       width: MediaQuery.of(context).size.width,
-      color: Colors.green,
+      // color: Colors.green,
       child: Text("Chart here po"),
     );
   }

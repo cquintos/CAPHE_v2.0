@@ -20,11 +20,12 @@ class HomeScreen extends StatelessWidget {
           Wrap( 
             children: <Widget>[
               Container( 
-                height: deviceHeight*0.4, 
+                height: deviceHeight*0.43, 
                 child: CarouselSection()
               )
             ]
           ),
+          // SizedBox(height:10),
           Expanded( child: ChartSection() ),
         ]
       ),
@@ -32,16 +33,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-
-
-
-
-        // children: [
-        //   Text("HomeScreen"), 
-        //   ElevatedButton(
-        //     onPressed: () {
-        //       Navigator.pushNamed(context, TimelineScreenRoute);
-        //     }, 
-        //     child: Text("Timeline"),
-        //   )
-        // ],

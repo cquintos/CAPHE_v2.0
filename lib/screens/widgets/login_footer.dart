@@ -25,7 +25,6 @@ class FooterSection extends StatelessWidget {
                 Container(
                   alignment: Alignment.bottomRight,
                   child: IconButton(
-                    
                     icon: Icon( Icons.help, color: Colors.green.shade800, size: 50, ), 
                     onPressed: () { Navigator.push(context, MaterialPageRoute(builder: (context) => AboutScreen())); },
                   ),
