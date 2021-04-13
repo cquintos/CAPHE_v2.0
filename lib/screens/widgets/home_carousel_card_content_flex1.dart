@@ -37,7 +37,7 @@ class CardContentFlex1 extends StatelessWidget {
                 this.data,
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
-                  fontSize: 40, 
+                  fontSize: 20, 
                 ),
                 maxLines: 1,
                 minFontSize: 10,

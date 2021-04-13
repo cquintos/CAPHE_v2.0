@@ -17,7 +17,7 @@ class _CardSectionState extends State<CardSection> {
     double deviceHeight = MediaQuery.of(context).size.height;
 
     return Container (
-      padding: EdgeInsets.all(5),
+      padding: EdgeInsets.all(10),
       margin: EdgeInsets.symmetric(horizontal: deviceWidth*0.01),
       height: deviceHeight*.3,
       width: deviceWidth*.9,
@@ -48,7 +48,7 @@ class _CardSectionState extends State<CardSection> {
             child: Container(
               child: Column(
                 children: <Expanded> [
-                  Expanded( flex:2, child: CardContentFlex1(title: "Batch Name:", data: "MyKopi"), ),
+                  Expanded( flex:1, child: CardContentFlex1(title: "Batch Name:", data: "MyKopi"), ),
                   Expanded( flex: 1,
                     child: Container(
                       child: Row(

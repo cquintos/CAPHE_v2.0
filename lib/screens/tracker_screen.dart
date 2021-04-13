@@ -5,7 +5,7 @@ class TrackerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text("Tracker Screen"),
+      child: Text("OPEN CV IMAGE PROCESSING"),
     );
   }
 }

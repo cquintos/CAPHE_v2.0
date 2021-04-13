@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:caphe_v2/routing_constants.dart';
 import 'package:flutter/material.dart';
 
 class CardContentLeft extends StatefulWidget {
@@ -18,7 +19,7 @@ class _CardContentLeftState extends State<CardContentLeft> {
 
   @override
   Widget build(BuildContext context) {
-    const double iconSize = 35; 
+    const double iconSize = 33; 
 
     return Container(
       child: Column(
@@ -41,10 +42,11 @@ class _CardContentLeftState extends State<CardContentLeft> {
           Expanded(
             flex: 2,
             child: Container(
-              alignment: Alignment.topCenter,
+              alignment: Alignment.topLeft,
               child: AutoSizeText(
                 this.widget.data,
                 maxLines: 1,
+                textAlign: TextAlign.left,
                 stepGranularity: 10,
                 minFontSize: 10,
                 style: TextStyle(
@@ -58,6 +60,7 @@ class _CardContentLeftState extends State<CardContentLeft> {
           Expanded(
             flex:1,
             child: Container(
+              alignment: Alignment.topLeft,
               child: FittedBox(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -78,7 +81,7 @@ class _CardContentLeftState extends State<CardContentLeft> {
                     ),
                     IconButton(
                       onPressed: () {
-
+                        Navigator.pushNamed(context, LoginScreenRoute);
                       }, 
                       icon: Icon(Icons.delete, size:iconSize, ),
                     )

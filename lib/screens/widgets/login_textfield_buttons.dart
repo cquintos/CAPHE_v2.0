@@ -10,11 +10,7 @@ class ButtonSection extends StatelessWidget {
       children: [
         ElevatedButton(
           onPressed: () {
-            Navigator.pushReplacementNamed(context, HomeScreenRoute);
-            // context.read<AuthenticationService>().signIn(
-            //   email: _emailController.text.trim(),
-            //   password: _passwordController.text.trim(),
-            // );
+            Navigator.pushReplacementNamed(context, NavigationScreenRoute);
           },
           child: Text(
             "Sign In",
@@ -41,3 +37,8 @@ class ButtonSection extends StatelessWidget {
     );
   }
 }
+
+            // context.read<AuthenticationService>().signIn(
+            //   email: _emailController.text.trim(),
+            //   password: _passwordController.text.trim(),
+            // );

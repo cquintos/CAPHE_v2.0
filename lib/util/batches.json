@@ -1,0 +1,45 @@
+{
+    "batches" : [
+        {
+            "name" : "locar",
+            "batch" : "R0001",
+            "species" : "ROBUSTA",
+            "stage" : "FLOWERING",
+            "date" : "1/28/2021",
+            "daysLeft" : "295"
+        },
+        {
+            "name" : "procar",
+            "batch" : "L0001",
+            "species" : "LIBERICA",
+            "stage" : "BERRY DEVELOPMENT",
+            "date" : "7/07/2021",
+            "daysLeft" : "70"
+        },
+        {
+            "name" : " myKopi",
+            "batch" : "L0021",
+            "species" : "LIBERICA",
+            "stage" : "BERRY RIPENING",
+            "date" : "10/10/2021",
+            "daysLeft" : "15"
+        },
+        {
+            "name" : "Sample",
+            "batch" : "A0005",
+            "species" : "ARABICA",
+            "stage" : "INFLORESCENECE",
+            "date" : "1/28/2021",
+            "daysLeft" : "295"
+        },
+        {
+            "name" : "TryTryTry",
+            "batch" : "E00028",
+            "species" : "EXCELSA",
+            "stage" : "FLOWERING",
+            "date" : "1/29/2021",
+            "daysLeft" : "305"
+        }
+    ]
+
+}
