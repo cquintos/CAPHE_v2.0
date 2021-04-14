@@ -25,8 +25,8 @@ class _TextfieldSectionState extends State<TextfieldSection> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            FormSection(),
-            ButtonSection(),
+            LoginTextfieldForm(),
+            LoginTextfieldButtons(),
           ],
         ),
       ),

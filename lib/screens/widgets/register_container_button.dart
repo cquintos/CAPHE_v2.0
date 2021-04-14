@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class RegisterButtonSection extends StatelessWidget {
+class RegisterContainerButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(

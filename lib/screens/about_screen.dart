@@ -31,7 +31,7 @@ class AboutScreen extends StatelessWidget {
             )
           ),
           Expanded( 
-            child: FaqSection()
+            child: AboutFaq()
           ),
         ],
       ),

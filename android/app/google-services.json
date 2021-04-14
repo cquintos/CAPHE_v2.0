@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "41594081597",
+    "project_id": "caphe-version-2",
+    "storage_bucket": "caphe-version-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:41594081597:android:baa0babbf971cf8ff7b554",
+        "android_client_info": {
+          "package_name": "com.example.caphe_v2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "41594081597-b5ej0j08l462jo0kl2mh8kebq3ng3vnv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.caphe_v2",
+            "certificate_hash": "40f904f6408cf0f39d2fa23254fe16c6ef801cd3"
+          }
+        },
+        {
+          "client_id": "41594081597-km5rpgr99hf48erapq0op0b8nhhb6ci8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAERuf0w-B9SC9IocbHrShvyGy3p_DC-f0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "41594081597-km5rpgr99hf48erapq0op0b8nhhb6ci8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

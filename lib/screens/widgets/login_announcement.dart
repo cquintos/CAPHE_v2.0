@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class AnnouncementSection extends StatelessWidget {
+class LoginAnnouncement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List announcementDate = [

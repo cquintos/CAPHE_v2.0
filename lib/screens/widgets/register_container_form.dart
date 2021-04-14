@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class RegisterFormSection extends StatefulWidget {
+class RegisterContainerForm extends StatefulWidget {
   @override
-  _RegisterFormSectionState createState() => _RegisterFormSectionState();
+  _RegisterContainerFormState createState() => _RegisterContainerFormState();
 }
 
-class _RegisterFormSectionState extends State<RegisterFormSection> {
+class _RegisterContainerFormState extends State<RegisterContainerForm> {
   @override
   Widget build(BuildContext context) {
     final _phoneController = TextEditingController();

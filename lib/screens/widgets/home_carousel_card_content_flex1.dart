@@ -1,12 +1,12 @@
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
-class CardContentFlex1 extends StatelessWidget {
+class HomeCarouselCardContentFlex1 extends StatelessWidget {
 
   final String title;
   final String data;
 
-  const CardContentFlex1({Key key, this.title, this.data}) : super(key: key);
+  const HomeCarouselCardContentFlex1({Key key, this.title, this.data}) : super(key: key);
  
   @override
   Widget build(BuildContext context) {

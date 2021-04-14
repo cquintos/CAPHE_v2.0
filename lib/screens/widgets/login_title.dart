@@ -1,7 +1,7 @@
 import 'package:caphe_v2/screens/widgets/login_textfield.dart';
 import 'package:flutter/material.dart';
 
-class TitleSection extends StatelessWidget {
+class LoginTitle extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;

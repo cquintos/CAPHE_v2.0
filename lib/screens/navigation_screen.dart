@@ -39,7 +39,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
             context: context,
             barrierDismissible: true, // user must tap button!
             builder: (BuildContext context) {
-              return AddBatchDialog( title: "Add New Coffee Batch", );
+              return NavigationAddBatch( title: "Add New Coffee Batch", );
             },
           );
         }

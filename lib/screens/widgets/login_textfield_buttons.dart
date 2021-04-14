@@ -2,7 +2,7 @@ import 'package:caphe_v2/routing_constants.dart';
 import 'package:caphe_v2/screens/register_screen.dart';
 import 'package:flutter/material.dart';
 
-class ButtonSection extends StatelessWidget {
+class LoginTextfieldButtons extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(

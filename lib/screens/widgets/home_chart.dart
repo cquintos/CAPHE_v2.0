@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
-class ChartSection extends StatefulWidget {
-  ChartSection({Key key}) : super(key: key);
+class HomeChart extends StatefulWidget {
+  HomeChart({Key key}) : super(key: key);
 
   @override
-  _ChartSectionState createState() => _ChartSectionState();
+  _HomeChartState createState() => _HomeChartState();
 }
 
-class _ChartSectionState extends State<ChartSection> {
+class _HomeChartState extends State<HomeChart> {
   @override
   Widget build(BuildContext context) {
 

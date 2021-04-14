@@ -19,11 +19,11 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Container( 
               height: deviceHeight*0.43, 
-              child: CarouselSection()
+              child: HomeCarousel()
             )
           ]
         ),
-        Expanded( child: ChartSection() ),
+        Expanded( child: HomeChart() ),
       ]
     );
   }

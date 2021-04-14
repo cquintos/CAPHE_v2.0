@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import '../about_screen.dart';
 
-class FooterSection extends StatelessWidget {
+class LoginFooter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

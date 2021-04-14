@@ -1,5 +1,5 @@
 import 'package:caphe_v2/screens/widgets/login_announcement.dart';
-import 'package:caphe_v2/screens/widgets/login_background.dart';
+import 'package:caphe_v2/screens/widgets/background.dart';
 import 'package:caphe_v2/screens/widgets/login_footer.dart';
 import 'package:caphe_v2/screens/widgets/login_title.dart';
 import 'package:flutter/material.dart';
@@ -21,12 +21,12 @@ class _LoginScreenState extends State<LoginScreen> {
       body: Center(
         child: Stack(
           children: <Widget>[
-            BackgroundSection(),
+            Background(),
             Column(
               children: <Widget>[
-                TitleSection(),
-                AnnouncementSection(),
-                FooterSection(),
+                LoginTitle(),
+                LoginAnnouncement(),
+                LoginFooter(),
               ],
             )
           ],

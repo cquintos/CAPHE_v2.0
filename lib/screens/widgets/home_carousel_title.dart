@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class CarouselTitleSection extends StatelessWidget {
+class HomeCarouselTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {

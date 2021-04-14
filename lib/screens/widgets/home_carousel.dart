@@ -4,14 +4,14 @@ import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'home_carousel_card.dart';
 import 'home_carousel_title.dart';
 
-class CarouselSection extends StatefulWidget {
-  CarouselSection({Key key}) : super(key: key);
+class HomeCarousel extends StatefulWidget {
+  HomeCarousel({Key key}) : super(key: key);
 
   @override
-  _CarouselSectionState createState() => _CarouselSectionState();
+  _HomeCarouselState createState() => _HomeCarouselState();
 }
 
-class _CarouselSectionState extends State<CarouselSection> {
+class _HomeCarouselState extends State<HomeCarousel> {
   // List<CoffeeBatch> data = [];
   
   List<int> data = [1,2,3,4,5];
@@ -35,7 +35,7 @@ class _CarouselSectionState extends State<CarouselSection> {
       child: Center(
         child: Column (
           mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [ CardSection(), ],
+          children: [ HomeCarouselCard(), ],
         ),
       ),
     );
@@ -47,7 +47,7 @@ class _CarouselSectionState extends State<CarouselSection> {
     
     return Column (
       children: <Widget>[
-        CarouselTitleSection(),
+        HomeCarouselTitle(),
         // SizedBox(height:10),
         Expanded(
           child: ScrollSnapList(

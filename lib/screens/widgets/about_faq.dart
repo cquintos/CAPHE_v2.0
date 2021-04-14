@@ -37,13 +37,13 @@ List<FAQ> generateItems() {
   });
 }
 
-class FaqSection extends StatefulWidget {
+class AboutFaq extends StatefulWidget {
 
   @override
-  _FaqSectionState createState() => _FaqSectionState();
+  _AboutFaqState createState() => _AboutFaqState();
 }
 
-class _FaqSectionState extends State<FaqSection> {
+class _AboutFaqState extends State<AboutFaq> {
 
   @override
   Widget build(BuildContext context) {

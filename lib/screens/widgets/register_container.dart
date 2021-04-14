@@ -1,5 +1,5 @@
 import 'package:caphe_v2/screens/widgets/register_container_button.dart';
-import 'package:caphe_v2/screens/widgets/register_form.dart';
+import 'package:caphe_v2/screens/widgets/register_container_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterContainer extends StatefulWidget {
@@ -27,8 +27,8 @@ class _RegisterContainerState extends State<RegisterContainer> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            RegisterFormSection(),
-            RegisterButtonSection()
+            RegisterContainerForm(),
+            RegisterContainerButton()
           ],
         ),
       ),

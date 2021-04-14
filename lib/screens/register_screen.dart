@@ -1,4 +1,4 @@
-import 'package:caphe_v2/screens/widgets/login_background.dart';
+import 'package:caphe_v2/screens/widgets/background.dart';
 import 'package:caphe_v2/screens/widgets/register_container.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +23,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       body: Center(
         child: Stack(
           children: <Widget>[
-            BackgroundSection(),
+            Background(),
             RegisterContainer(),
           ],
         ),

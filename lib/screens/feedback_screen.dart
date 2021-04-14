@@ -1,4 +1,4 @@
-import 'package:caphe_v2/screens/widgets/login_background.dart';
+import 'package:caphe_v2/screens/widgets/background.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackScreen extends StatefulWidget {
@@ -18,7 +18,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
 
     return Stack(
       children: [
-        BackgroundSection(),
+        Background(),
         Center(
           child: Container(
             padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.1, vertical: 30),

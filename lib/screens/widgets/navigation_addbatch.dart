@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import '../../routing_constants.dart';
 
-class AddBatchDialog extends StatefulWidget {
+class NavigationAddBatch extends StatefulWidget {
   final String title;
   // final FirebaseAuth auth;
 
-  const AddBatchDialog({Key key, this.title})
+  const NavigationAddBatch({Key key, this.title})
       : super(key: key);
 
   @override
-  AddBatchDialogState createState() {
-    return new AddBatchDialogState();
+  NavigationAddBatchState createState() {
+    return new NavigationAddBatchState();
   }
 }
 
-class AddBatchDialogState extends State<AddBatchDialog> {
+class NavigationAddBatchState extends State<NavigationAddBatch> {
   final _batchNameController = TextEditingController();
   final _batchNumberController = TextEditingController();
   final _farmLocationController = TextEditingController();

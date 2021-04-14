@@ -2,20 +2,20 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:caphe_v2/routing_constants.dart';
 import 'package:flutter/material.dart';
 
-class CardContentLeft extends StatefulWidget {
-  const CardContentLeft({Key key, this.title, this.data, this.isPressed}) : super(key: key);
+class HomeCarouselCardContentLeft extends StatefulWidget {
+  const HomeCarouselCardContentLeft({Key key, this.title, this.data, this.isPressed}) : super(key: key);
   final String title;
   final String data;
   final bool  isPressed;
 
   @override
-  _CardContentLeftState createState() => _CardContentLeftState(this.isPressed);
+  _HomeCarouselCardContentLeftState createState() => _HomeCarouselCardContentLeftState(this.isPressed);
 }
 
-class _CardContentLeftState extends State<CardContentLeft> {
+class _HomeCarouselCardContentLeftState extends State<HomeCarouselCardContentLeft> {
   bool isPressed;
   
-  _CardContentLeftState(this.isPressed);
+  _HomeCarouselCardContentLeftState(this.isPressed);
 
   @override
   Widget build(BuildContext context) {
