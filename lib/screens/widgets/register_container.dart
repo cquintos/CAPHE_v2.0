@@ -3,13 +3,23 @@ import 'package:caphe_v2/screens/widgets/register_container_form.dart';
 import 'package:flutter/material.dart';
 
 class RegisterContainer extends StatefulWidget {
-  const RegisterContainer({Key key}) : super(key: key);
+  final List<TextEditingController> controllers;
+  final FocusNode myFocusNode;
+  final GlobalKey<FormState> formKey;
+
+  RegisterContainer( this.controllers, this.myFocusNode, this.formKey, {Key key} ) : super(key: key);
 
   @override
-  _RegisterContainerState createState() => _RegisterContainerState();
+  _RegisterContainerState createState() => _RegisterContainerState( controllers, myFocusNode, formKey );
 }
 
 class _RegisterContainerState extends State<RegisterContainer> {
+  List<TextEditingController> controllers;
+  FocusNode myFocusNode;
+  GlobalKey <FormState> formKey;
+
+  _RegisterContainerState( this.controllers, this.myFocusNode, this.formKey );
+
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;
@@ -23,12 +33,12 @@ class _RegisterContainerState extends State<RegisterContainer> {
           color: Colors.black.withOpacity(0.2),
           borderRadius: BorderRadius.circular(10)),
       child: Padding(
-        padding: const EdgeInsets.all(10),
+        padding: const EdgeInsets.fromLTRB(10,10,20,10),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            RegisterContainerForm(),
-            RegisterContainerButton()
+            Expanded( flex:8, child: RegisterContainerForm( controllers, myFocusNode, formKey), ),
+            Expanded( flex:1, child: RegisterContainerButton( controllers, myFocusNode, formKey), ),
           ],
         ),
       ),

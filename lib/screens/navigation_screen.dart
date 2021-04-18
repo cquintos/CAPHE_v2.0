@@ -15,21 +15,26 @@ class NavigationScreen extends StatefulWidget {
 
 class _NavigationScreenState extends State<NavigationScreen> {
   int _selectedIndex = 0;
+  String headerTitle = "CAPHE V2";
+
   List<Widget> _widgetOptions = [HomeScreen(), CalendarScreen(), FactsScreen(), FeedbackScreen()];
+  List<String> titles = ["CAPHE V2", "CALENDAR", "COFFEE FACTS", "FEEBACK"];
 
   void _onItemTap (int index) {
     setState(() {
       _selectedIndex = index;
+      headerTitle = titles[index];
     });
   }
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       drawer: Drawer (
         child: ListView(),
       ),
-      appBar: HeaderBar(text: Text("CAPHE v2")),
+      appBar: HeaderBar(text: Text(headerTitle)),
       body: _widgetOptions.elementAt(_selectedIndex),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green.shade800,

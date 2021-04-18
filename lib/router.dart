@@ -4,6 +4,7 @@ import 'package:caphe_v2/screens/calendar_screen.dart';
 import 'package:caphe_v2/screens/home_screen.dart';
 import 'package:caphe_v2/screens/login_screen.dart';
 import 'package:caphe_v2/screens/navigation_screen.dart';
+import 'package:caphe_v2/screens/register_screen.dart';
 import 'package:caphe_v2/screens/timeline_screen.dart';
 import 'package:caphe_v2/screens/tracker_screen.dart';
 import 'package:flutter/material.dart';
@@ -17,6 +18,8 @@ Route<dynamic> generateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (context) => LoginScreen());
     case TrackerScreenRoute:
       return MaterialPageRoute(builder: (context) => TrackerScreen());
+    case RegisterScreenRoute:
+      return MaterialPageRoute(builder: (context) => RegisterScreen());
     case CalendarScreenRoute:
       return MaterialPageRoute(builder: (context) => CalendarScreen());
     case TimelineScreenRoute:

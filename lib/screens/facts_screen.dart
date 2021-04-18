@@ -8,7 +8,6 @@ class FactsScreen extends StatefulWidget {
 }
 
 Widget _getContent(_value) {
-  Widget content;
   switch (_value) {
     case 1: return Container (
               child: Text("Coffea Canephora, or Coffea robusta, is a coffee plant that is most commonly known to grow Robusta coffee beans. It is a species of coffee belonging to Rubiaceae (Madder family). Though widely known as Coffea robusta, the plant is scientifically identified as Coffea canephora, which has two main varieties, robusta and nganda. The plant has its origins in the northern forests of Ethiopia and now grows indigenously throughout western and central sub-Saharan Africa (Liberia – Tanzania – Angola). Some of the popular common names of the plant are Congo coffee, Congo coffeetree, Robusta coffee and robusta coffee tree."),

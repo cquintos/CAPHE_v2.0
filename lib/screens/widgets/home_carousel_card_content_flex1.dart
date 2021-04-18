@@ -19,11 +19,7 @@ class HomeCarouselCardContentFlex1 extends StatelessWidget {
               alignment: Alignment.bottomLeft,
               child: AutoSizeText(
                 this.title,
-                style: TextStyle(
-                  fontSize: 24,
-                  color: Colors.green.shade700,
-                  fontWeight: FontWeight.w300,
-                ),
+                style: TextStyle( fontSize: 24, color: Colors.green.shade700, fontWeight: FontWeight.w300, ),
                 minFontSize: 8,
                 stepGranularity: 2,
               )
@@ -35,10 +31,7 @@ class HomeCarouselCardContentFlex1 extends StatelessWidget {
               alignment: Alignment.topLeft,
               child: AutoSizeText(
                 this.data,
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20, 
-                ),
+                style: TextStyle( fontWeight: FontWeight.bold, fontSize: 20, ),
                 maxLines: 1,
                 minFontSize: 10,
                 stepGranularity: 5,

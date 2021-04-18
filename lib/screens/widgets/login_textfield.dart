@@ -2,12 +2,12 @@ import 'package:caphe_v2/screens/widgets/login_textfield_buttons.dart';
 import 'package:caphe_v2/screens/widgets/login_textfield_form.dart';
 import 'package:flutter/material.dart';
 
-class TextfieldSection extends StatefulWidget {
+class LoginTextfield extends StatefulWidget {
   @override
-  _TextfieldSectionState createState() => _TextfieldSectionState();
+  _LoginTextfieldState createState() => _LoginTextfieldState();
 }
 
-class _TextfieldSectionState extends State<TextfieldSection> {
+class _LoginTextfieldState extends State<LoginTextfield> {
   @override
   Widget build(BuildContext context) {
     double deviceWidth = MediaQuery.of(context).size.width;

@@ -1,4 +1,4 @@
-import 'package:caphe_v2/classes/coffee_batch.dart';
+// import 'package:caphe_v2/classes/coffee_batch.dart';
 import 'package:flutter/material.dart';
 import 'package:scroll_snap_list/scroll_snap_list.dart';
 import 'home_carousel_card.dart';

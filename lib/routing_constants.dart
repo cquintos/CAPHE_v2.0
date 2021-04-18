@@ -5,3 +5,4 @@ const String CalendarScreenRoute = 'calendar';
 const String TimelineScreenRoute = 'timeline';
 const String AboutScreenRoute = 'about';
 const String NavigationScreenRoute = 'navigation';
+const String RegisterScreenRoute = 'register';

@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
+
+// final FirebaseAuth _auth = FirebaseAuth.instance;
+// final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class LoginTextfieldForm extends StatefulWidget {
   @override
@@ -6,11 +11,22 @@ class LoginTextfieldForm extends StatefulWidget {
 }
 
 class _LoginTextfieldFormState extends State<LoginTextfieldForm> {
+  // final _formKey = GlobalKey<FormState>();
+  // final _formKeyOTP = GlobalKey<FormState>();
+  // final _scaffoldKey = GlobalKey<FormState>();
+
+  final TextEditingController _phoneController = new TextEditingController();
+  final TextEditingController _passwordController = new TextEditingController();
+  // final TextEditingController _otpController = new TextEditingController();
+
+  var isLoading = false;
+  var isResend = false; 
+  var isLoginScreen = false;
+  var isOTPScreen = false;
+  var verificationCode = '';
+
   @override
   Widget build(BuildContext context) {
-    final _phoneController = TextEditingController();
-    final _passwordController = TextEditingController();
-
     return Column(
       children: [
         TextFormField(
@@ -22,6 +38,12 @@ class _LoginTextfieldFormState extends State<LoginTextfieldForm> {
             enabledBorder: UnderlineInputBorder( borderSide: BorderSide(color: Colors.white) ),
             labelText: "Phone Number", labelStyle: TextStyle(color: Colors.white, fontSize: 15), 
           ),
+          validator: (value) {
+            if (value.isEmpty) {
+              return 'Please enter a number';
+            } 
+            return null;
+          },
         ),
         TextFormField(
           controller: _passwordController,
