@@ -1,12 +1,5 @@
 import 'package:caphe_v2/screens/widgets/register_container_form_field.dart';
 import 'package:flutter/material.dart';
-// import 'package:firebase_auth/firebase_auth.dart';
-// import 'package:flutter/services.dart';
-// import 'package:country_icons/country_icons.dart';
-// import 'package:cloud_firestore/cloud_firestore.dart';
-
-// final FirebaseAuth _firebase = FirebaseAuth.instance;
-// final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 
 class RegisterContainerForm extends StatefulWidget {
   final List<TextEditingController> controllers;
@@ -20,9 +13,6 @@ class RegisterContainerForm extends StatefulWidget {
 }
 
 class _RegisterContainerFormState extends State<RegisterContainerForm> {
-  // // final _formKey = GlobalKey<FormState>();
-  // final _formKeyOTP = GlobalKey<FormState>();
-  // final _scaffoldKey = GlobalKey<ScaffoldState>();
   List<TextEditingController> controllers;
   FocusNode myFocusNode;
   GlobalKey<FormState> formKey;

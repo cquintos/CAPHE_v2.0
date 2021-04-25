@@ -8,7 +8,7 @@ class AboutScreen extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return Scaffold(
-      appBar: HeaderBar(text: Text("About CAPHE v2")),
+      appBar: HeaderBar(text: Text("About")),
       body: Column(
         children: <Widget>[
           Container (

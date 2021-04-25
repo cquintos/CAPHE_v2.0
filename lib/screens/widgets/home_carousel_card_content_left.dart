@@ -1,6 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:caphe_v2/routing_constants.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:auto_size_text/auto_size_text.dart';
+import 'package:caphe_v2/authentication_service.dart';
 
 class HomeCarouselCardContentLeft extends StatefulWidget {
   const HomeCarouselCardContentLeft({Key key, this.title, this.data, this.isPressed}) : super(key: key);
@@ -81,7 +82,7 @@ class _HomeCarouselCardContentLeftState extends State<HomeCarouselCardContentLef
                     ),
                     IconButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, LoginScreenRoute);
+                        context.read<AuthenticationService>().signOut();
                       }, 
                       icon: Icon(Icons.delete, size:iconSize, ),
                     )

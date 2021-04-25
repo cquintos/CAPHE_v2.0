@@ -1,39 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 
 class HeaderBar extends StatelessWidget implements PreferredSizeWidget {
   final Text text;
-
-  const HeaderBar({Key key, this.text})
-      : super(key: key);
+  const HeaderBar({Key key, this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    double deviceWidth = MediaQuery.of(context).size.width;
-    double deviceHeight = MediaQuery.of(context).size.height;
-
     return AppBar(
       title: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          this.text,
-          Stack(
-            children: <Widget>[
-              Container(
-                alignment: Alignment.centerRight,
-                width: deviceWidth*0.4,
-                height: deviceHeight*0.04,
-                decoration: BoxDecoration(
-                  image: DecorationImage( 
-                    alignment: Alignment.bottomRight, 
-                    image: AssetImage("assets/dost-pcaarrd-uplb.png"), 
-                    fit: BoxFit.fitHeight, 
-                  )
-                ),
+          Expanded( flex: 3,
+            child: AutoSizeText(
+              this.text.data,
+              maxLines: 1,
+              stepGranularity: 2,
+              minFontSize: 10,
+              overflow: TextOverflow.visible,
+              style: TextStyle(
+                fontSize: 25,
+                color: Colors.white,
               ),
-            ]
+            )
           ),
-        ],
-      ),
+          Expanded( flex:2,
+            child: Image.asset(
+              'assets/dost-pcaarrd-uplb.png',
+              fit: BoxFit.contain,
+              // height: 32,
+            ),
+          )
+        ]
+      )
     );
   }
   @override

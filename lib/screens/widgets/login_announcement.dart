@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 
 class LoginAnnouncement extends StatelessWidget {
@@ -16,66 +17,67 @@ class LoginAnnouncement extends StatelessWidget {
       "GRADUATION PARTY OF JCCCCCCCCCC","MUST HAVE JOB BY THIS DATE",
       "BDAY OF MJ CONSTANTINO"
     ];
-    double deviceHeight = MediaQuery.of(context).size.height;
+    bool empty = false;
 
-    return Expanded(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Wrap (
-            children: [
-              Text(
-                "ANNOUNCEMENTS: ",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold,
-                  fontSize: deviceHeight * 0.02,
-                ),
-              ),
-            ],
-          ),
-          Expanded(
-            child: Scrollbar(
-              isAlwaysShown: true,
-              child: ListView.builder(
-                clipBehavior: Clip.antiAlias,
-                itemCount: announcementInfo.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: EdgeInsets.fromLTRB(35, 0, 35, 0),
-                    height: 70,
-                    child: Center(
-                      child: Card(
-                        elevation: 0.5,
-                        color: Colors.black.withOpacity(0.1),
-                        child: ListTile(
-                          dense: true,
-                          title: Text(
-                            '${announcementDate[index]}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Expanded( flex:1,
+          child:  AutoSizeText(
+            !empty ? "ANNOUNCEMENTS: ": "NO ANNOUNCEMENTS",
+            stepGranularity: 2,
+            maxLines: 1,
+            maxFontSize: 50,
+            minFontSize: 10,
+            style: TextStyle(
+              color: Colors.white,
+              fontWeight: FontWeight.bold,
+              fontSize: 40,
+            ),
+          ), 
+        ),
+        Expanded( flex:6,
+          child: 
+            !empty ? Scrollbar(
+            isAlwaysShown: true,
+            child: ListView.builder(
+              clipBehavior: Clip.antiAlias,
+              itemCount: announcementInfo.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.fromLTRB(35, 0, 35, 0),
+                  height: 70,
+                  child: Center(
+                    child: Card(
+                      elevation: 0.5,
+                      color: Colors.black.withOpacity(0.3),
+                      child: ListTile(
+                        dense: true,
+                        title: Text(
+                          '${announcementDate[index]}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
                           ),
-                          subtitle: Text(
-                            '${announcementInfo[index]}',
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w100,
-                            ),
+                        ),
+                        subtitle: Text(
+                          '${announcementInfo[index]}',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.w100,
                           ),
                         ),
                       ),
                     ),
-                  );
-                },
-                shrinkWrap: true,
-                physics: AlwaysScrollableScrollPhysics(),
-              ),
-             ),
-          ),
-        ],
-      ),
+                  ),
+                );
+              },
+              shrinkWrap: true,
+              physics: AlwaysScrollableScrollPhysics(),
+            ),
+           ) : Center(),
+        ),
+      ],
     );
   }
 }

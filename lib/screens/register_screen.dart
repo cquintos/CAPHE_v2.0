@@ -1,16 +1,11 @@
-import 'package:caphe_v2/screens/widgets/background.dart';
-import 'package:caphe_v2/screens/widgets/register_container.dart';
 import 'package:flutter/material.dart';
 import 'package:caphe_v2/screens/widgets/header_bar.dart';
+import 'package:caphe_v2/screens/widgets/background.dart';
+import 'package:caphe_v2/screens/widgets/register_container.dart';
 
-class RegisterScreen extends StatefulWidget {
+class RegisterScreen extends StatelessWidget {
 
-  @override
-  _RegisterScreenState createState() => _RegisterScreenState();
-}
-
-class _RegisterScreenState extends State<RegisterScreen> {
-  List<TextEditingController> controllers = [
+  final List<TextEditingController> controllers = [
     for(int i=0; i<6; i++)
       TextEditingController(), 
   ];

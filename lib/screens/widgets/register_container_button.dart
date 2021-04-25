@@ -22,7 +22,7 @@ class RegisterContainerButton extends StatelessWidget {
                 if(formKey.currentState.validate()) {
                   return showDialog<String> (
                     context: context,
-                    barrierDismissible: false, // user must tap button!
+                    barrierDismissible: false,
                     builder: (BuildContext context) {
                       return RegisterRecap(controllers);
                     }
