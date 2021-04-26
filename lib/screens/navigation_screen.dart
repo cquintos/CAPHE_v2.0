@@ -2,9 +2,12 @@ import 'package:caphe_v2/screens/facts_screen.dart';
 import 'package:caphe_v2/screens/widgets/header_bar.dart';
 import 'package:caphe_v2/screens/widgets/navigation_addbatch.dart';
 import 'package:flutter/material.dart';
+import '../authentication_service.dart';
 import 'calendar_screen.dart';
 import 'feedback_screen.dart';
 import 'home_screen.dart';
+import 'package:provider/provider.dart';
+
 
 class NavigationScreen extends StatefulWidget {
   NavigationScreen({Key key}) : super(key: key);
@@ -32,7 +35,14 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
     return Scaffold(
       drawer: Drawer (
-        child: ListView(),
+        child: ListView(
+          children: [
+            IconButton(onPressed:() {
+              context.read<AuthenticationService>().signOut();
+
+            }, icon: Icon(Icons.logout))
+          ],
+        ),
       ),
       appBar: HeaderBar(text: Text(headerTitle)),
       body: _widgetOptions.elementAt(_selectedIndex),

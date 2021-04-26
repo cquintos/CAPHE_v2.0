@@ -3,20 +3,20 @@ import 'package:provider/provider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:caphe_v2/authentication_service.dart';
 
-class HomeCarouselCardContentLeft extends StatefulWidget {
-  const HomeCarouselCardContentLeft({Key key, this.title, this.data, this.isPressed}) : super(key: key);
+class HomeCarouselCardLeft extends StatefulWidget {
+  const HomeCarouselCardLeft({Key key, this.title, this.data, this.isPressed}) : super(key: key);
   final String title;
   final String data;
   final bool  isPressed;
 
   @override
-  _HomeCarouselCardContentLeftState createState() => _HomeCarouselCardContentLeftState(this.isPressed);
+  _HomeCarouselCardLeftState createState() => _HomeCarouselCardLeftState(this.isPressed);
 }
 
-class _HomeCarouselCardContentLeftState extends State<HomeCarouselCardContentLeft> {
+class _HomeCarouselCardLeftState extends State<HomeCarouselCardLeft> {
   bool isPressed;
   
-  _HomeCarouselCardContentLeftState(this.isPressed);
+  _HomeCarouselCardLeftState(this.isPressed);
 
   @override
   Widget build(BuildContext context) {

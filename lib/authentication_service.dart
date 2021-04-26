@@ -16,7 +16,7 @@ class AuthenticationService {
     return id;
   }
 
-  Future<void> phoneVerification( String phoneNumber, BuildContext context, List controllers ) async {
+  Future phoneVerification( String phoneNumber, BuildContext context, List controllers ) async {
     try {
       await _firebaseAuth.verifyPhoneNumber(
         phoneNumber: phoneNumber,
@@ -27,7 +27,7 @@ class AuthenticationService {
           print(verificationFailed.message);
         },
         codeSent: (verificationId, resendingToken) async {
-          id = verificationId;
+          return id = verificationId;
         },
         codeAutoRetrievalTimeout: (verificationId) async {
         },

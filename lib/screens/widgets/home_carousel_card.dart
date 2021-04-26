@@ -1,6 +1,6 @@
-import 'package:caphe_v2/screens/widgets/home_carousel_card_content_flex1.dart';
+import 'package:caphe_v2/screens/widgets/home_carousel_card_data.dart';
 import 'package:flutter/material.dart';
-import 'home_carousel_card_content_left.dart';
+import 'home_carousel_card_left.dart';
 
 class HomeCarouselCard extends StatefulWidget {
   HomeCarouselCard({Key key}) : super(key: key);
@@ -35,7 +35,7 @@ class _HomeCarouselCardState extends State<HomeCarouselCard> {
       ),
       child: Row (
         children: <Widget> [
-          Expanded( flex:2, child: HomeCarouselCardContentLeft(title: "DAYS LEFT BEFORE HARVEST", data: "295", isPressed: false,), ),
+          Expanded( flex:2, child: HomeCarouselCardLeft(title: "DAYS LEFT BEFORE HARVEST", data: "295", isPressed: false,), ),
           VerticalDivider(
             color:Colors.green.shade800,
             endIndent: 0,
@@ -48,20 +48,20 @@ class _HomeCarouselCardState extends State<HomeCarouselCard> {
             child: Container(
               child: Column(
                 children: <Expanded> [
-                  Expanded( flex:1, child: HomeCarouselCardContentFlex1(title: "Batch Name:", data: "MyKopi"), ),
+                  Expanded( flex:1, child: HomeCarouselCardData(title: "Batch Name:", data: "MyKopi"), ),
                   Expanded( flex: 1,
                     child: Container(
                       child: Row(
                         children: <Widget> [
-                          Expanded( flex: 2, child: HomeCarouselCardContentFlex1(title: "Batch:", data: "0001"), ),
+                          Expanded( flex: 2, child: HomeCarouselCardData(title: "Batch:", data: "0001"), ),
                           SizedBox(width:5),
-                          Expanded( flex: 3, child: HomeCarouselCardContentFlex1(title: "Date Added:", data: "01/28/2021"), ),
+                          Expanded( flex: 3, child: HomeCarouselCardData(title: "Date Added:", data: "01/28/2021"), ),
                         ]
                       ),
                     ),
                   ),
-                  Expanded( flex: 1, child: HomeCarouselCardContentFlex1(title: "Species:", data:"ROBUSTA"), ),
-                  Expanded( flex: 1, child: HomeCarouselCardContentFlex1(title: "Current Growth Stage:", data: "INFLORESCENCE"), ),
+                  Expanded( flex: 1, child: HomeCarouselCardData(title: "Species:", data:"ROBUSTA"), ),
+                  Expanded( flex: 1, child: HomeCarouselCardData(title: "Current Growth Stage:", data: "INFLORESCENCE"), ),
                 ],
               ),
             )
