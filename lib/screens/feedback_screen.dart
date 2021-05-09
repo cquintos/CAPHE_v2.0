@@ -1,4 +1,4 @@
-import 'package:caphe_v2/screens/widgets/background.dart';
+import 'package:caphe_v2/shared/background.dart';
 import 'package:flutter/material.dart';
 
 class FeedbackScreen extends StatefulWidget {
@@ -27,44 +27,11 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                   padding: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width*0.1, vertical: 30),
                   child: Column(
                     children: [
-                      Text("Enter your details so we can reach you.",
+                      Text("Your details like phone number and name will be sent to SARAI team.",
                         style: TextStyle(
                           fontSize: 20,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _phoneController,
-                        keyboardType: TextInputType.number,
-                        style: TextStyle( color: Colors.white, ),
-                        decoration: InputDecoration(
-                          icon: Icon(Icons.phone_android, color: Colors.white),
-                          enabledBorder: UnderlineInputBorder( borderSide: BorderSide(color: Colors.white) ),
-                          labelText: "Phone Number", labelStyle: TextStyle(color: Colors.white, fontSize: 15),
-                          suffixIcon: IconButton( onPressed: _phoneController.clear, icon: Icon(Icons.clear), ), 
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _userController,
-                        keyboardType: TextInputType.text,
-                        style: TextStyle( color: Colors.white, ),
-                        decoration: InputDecoration(
-                          icon: Icon( Icons.account_box_rounded, color: Colors.white, ),
-                          enabledBorder: UnderlineInputBorder( borderSide: BorderSide(color: Colors.white) ),
-                          labelText: "Name", labelStyle: TextStyle(color: Colors.white, fontSize: 15),
-                          suffixIcon: IconButton( onPressed: _userController.clear, icon: Icon(Icons.clear), ),
-                        ),
-                      ),
-                      TextFormField(
-                        controller: _provinceController,
-                        keyboardType: TextInputType.text,
-                        style: TextStyle( color: Colors.white, ),
-                        decoration: InputDecoration(
-                          icon: Icon( Icons.location_pin, color: Colors.white, ),
-                          enabledBorder: UnderlineInputBorder( borderSide: BorderSide(color: Colors.white) ),
-                          labelText: "Province", labelStyle: TextStyle(color: Colors.white, fontSize: 15),
-                          suffixIcon: IconButton( onPressed: _provinceController.clear, icon: Icon(Icons.clear), ),
                         ),
                       ),
                       SizedBox(height:deviceHeight*0.05),
@@ -126,7 +93,7 @@ class _FeedbackScreenState extends State<FeedbackScreen> {
                             onPressed: () {
                               
                             },
-                            child: Text("CLEAR ALL"),
+                            child: Text("CLEAR"),
                             style: OutlinedButton.styleFrom(
                               primary: Colors.white,
                               side: BorderSide(color: Colors.white),

@@ -1,12 +1,9 @@
+import 'package:caphe_v2/services/authentication_wrapper.dart';
 import 'package:flutter/material.dart';
-import 'authentication_service.dart';
+import 'services/authentication_service.dart';
 import 'package:provider/provider.dart';
-import 'package:caphe_v2/router.dart' as router;
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:caphe_v2/services/routing_service.dart' as router;
 import 'package:firebase_core/firebase_core.dart';
-import 'package:caphe_v2/screens/login_screen.dart';
-import 'package:caphe_v2/screens/navigation_screen.dart';
-// import 'package:caphe_v2/routing_constants.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         Provider<AuthenticationService>(
-          create: (_) => AuthenticationService(FirebaseAuth.instance),
+          create: (_) => AuthenticationService(),
         ),
         StreamProvider(
           create: (context) => context.read<AuthenticationService>().authStateChanges, 
@@ -29,27 +26,15 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         title: 'CAPHE v2',
+        home: AuthenticationWrapper(),
+        debugShowCheckedModeBanner: false,
         onGenerateRoute: router.generateRoute,
         theme: ThemeData(
           primaryColor: Colors.green.shade800,
           accentColor: Colors.white,
         ),
-        home: AuthenticationWrapper(),
       ),
     );
-  }
-}
-
-class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper ({ Key key }) : super (key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    final firebaseUser = context.watch<User>();
-    if (firebaseUser != null )
-      print("there is user");
-    return firebaseUser == null ? LoginScreen() : NavigationScreen();   
   }
 }
