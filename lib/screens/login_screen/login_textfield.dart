@@ -3,16 +3,13 @@ import 'package:caphe_v2/screens/login_screen/login_textfield_form.dart';
 import 'package:caphe_v2/screens/login_screen/login_textfield_buttons.dart';
 
 class LoginTextfield extends StatelessWidget {
-
-  LoginTextfield(this.isLoading);
-  final bool isLoading;
+  static final signInKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     final List<TextEditingController> signInControllers = [
       TextEditingController(), TextEditingController(), 
     ];
-    final signInKey = GlobalKey<FormState>();
 
     return Container(
       margin: EdgeInsets.fromLTRB(20,10,20,10),
@@ -26,7 +23,7 @@ class LoginTextfield extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Expanded(flex:3, child:LoginTextfieldForm(signInControllers, signInKey)),
-            Expanded(flex:1, child:LoginTextfieldButtons(isLoading, signInControllers, signInKey)),
+            Expanded(flex:1, child:LoginTextfieldButtons(signInControllers, signInKey)),
           ],
         ),
       ),

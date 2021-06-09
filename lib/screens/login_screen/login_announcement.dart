@@ -39,7 +39,7 @@ class LoginAnnouncement extends StatelessWidget {
         Expanded( flex:6,
           child: 
             !empty ? Scrollbar(
-            isAlwaysShown: true,
+            // isAlwaysShown: true,
             child: ListView.builder(
               clipBehavior: Clip.antiAlias,
               itemCount: announcementInfo.length,

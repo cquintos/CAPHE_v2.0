@@ -38,10 +38,11 @@ class EmptyCardLayout extends StatelessWidget{
               textAlign: TextAlign.center,
               style: TextStyle(
                 color: Colors.green.shade800,
-                fontSize: 50,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 10,),
             AutoSizeText(
               NO_FARM_YET_2,
               maxLines: 3,
@@ -49,7 +50,7 @@ class EmptyCardLayout extends StatelessWidget{
               stepGranularity: 1,
               textAlign: TextAlign.center,
               style: TextStyle(
-                fontSize: 20,
+                fontSize: 18,
               ),
             )
           ],

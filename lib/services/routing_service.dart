@@ -27,7 +27,7 @@ Route<dynamic> generateRoute(RouteSettings settings) {
     case AboutScreenRoute:
       return MaterialPageRoute(builder: (context) => AboutScreen());
     case NavigationScreenRoute:
-      return MaterialPageRoute(builder: (context) => NavigationScreen());
+      return MaterialPageRoute(builder: (context) => NavigationScreen(0, 0));
     default:
       return MaterialPageRoute(builder: (context) => HomeScreen());
   }

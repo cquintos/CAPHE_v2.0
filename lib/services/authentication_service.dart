@@ -13,16 +13,16 @@ class AuthenticationService {
       );
     
     } on FirebaseAuthException catch (e) {
-      print(e.message);
+      return e.message;
     }
   }
 
-  Future registerEmail({String email, String password, String nickname, String street, String barangay, String municipality, String province}) async {
+  Future registerEmail({String email, String password, String nickname, String municipality, String province}) async {
     try {
       UserCredential result = await _firebaseAuth.createUserWithEmailAndPassword(email: email, password: password);
       User user = result.user;
       
-      await DatabaseService().updateUserData(nickname, street, barangay, municipality, province);
+      await DatabaseService().updateUserData(nickname, municipality, province);
       return user;
     } on FirebaseAuthException catch (e) {
       print("Auth Error " + e.message);

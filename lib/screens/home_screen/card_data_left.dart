@@ -1,10 +1,12 @@
 import 'package:caphe_v2/models/farm.dart';
+import 'package:caphe_v2/screens/home_screen/timeline_panel.dart';
 import 'package:caphe_v2/screens/widgets/update_farm_panel.dart';
 import 'package:caphe_v2/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:caphe_v2/screens/widgets/alert_delete_confirmation.dart';
 import 'package:provider/provider.dart';
+import 'package:intl/intl.dart';
 
 class CardDataLeft extends StatefulWidget {
   const CardDataLeft({Key key, this.title, this.index, this.isPressed, this.group}) : super(key: key);
@@ -23,33 +25,24 @@ class _CardDataLeftState extends State<CardDataLeft> {
   var group;
   _CardDataLeftState(this.index, this.isPressed, this.group);
 
-  String _convertToWeeks(int days) {
-    int weeks = (days/7).floor();
-    int modulo = days%7;
-    String dayNum = days == 0 || (days%7 == 0 && days > 31) ? ""
-      : days == 1 ? "$days Day"
-      : days <= 7 && days%7 == 1 ? "${modulo.toString()} Day"
-      : days > 31 && days%7 == 1 ? "${modulo.toString()} Day \n"
-      : days <= 31 ? "$days Days"
-      : "${modulo.toString()} Days \n";
-    String weekNum = weeks == 0 || days <= 31 ? ""
-      : weeks == 1 ? "$weeks Week"
-      : "$weeks Weeks";
-
-    return dayNum + weekNum;
-  }
-
   @override
   Widget build(BuildContext context) {
     final farms = Provider.of<List<Farm>>(context);
 
     void _showUpdatePanel(Farm farm) {
-      showModalBottomSheet(
-        context: context, 
+
+      showModalBottomSheet<dynamic>(
+        isScrollControlled: true,
+        context: context,
         builder: (BuildContext context) {
-          return Container(
-            padding: EdgeInsets.symmetric(vertical:20, horizontal:20),
-            child: UpdateFarmPanel(farm),
+          return Wrap(
+            children: <Widget>[
+              Container(
+                height: MediaQuery.of(context).size.height*.8,
+                padding: EdgeInsets.symmetric(vertical:20, horizontal:20),
+                child: UpdateFarmPanel(farm)
+              )
+            ]
           );
         }
       );
@@ -65,65 +58,128 @@ class _CardDataLeftState extends State<CardDataLeft> {
       );
     }
 
+    void _showTimeline() {
+      showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (BuildContext context) {
+          return Dialog(  
+            elevation: 15,
+            backgroundColor: Colors.transparent,
+            insetPadding: EdgeInsets.fromLTRB(10,60,10,40),
+            child: TimelinePanel(farms[index]),
+          );
+        }
+      );
+    }
+
     return Container(
       child: Column(
-        children: <Expanded> [
+        children: <Widget> [
           Expanded(
-            flex: 1,
+            flex:3,
+            child: ElevatedButton(
+              child: Text('SHOW TIMELINE', textAlign: TextAlign.center,),
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green.shade800,
+                onPrimary: Colors.white,
+              ),
+              onPressed: () => _showTimeline(), 
+            )
+          ),
+          Spacer(),
+          Expanded(
+            flex: 2,
             child: Container(
-              alignment: Alignment.bottomLeft,
+              alignment: Alignment.topLeft,
               child: AutoSizeText(
-                this.widget.title,
-                style: TextStyle( fontSize: 24, color: Colors.green.shade700, fontWeight: FontWeight.w300, ),
-                minFontSize: 8,
+                farms[index].harvestDate != null 
+                  ? this.widget.title
+                  : "INSUFFECIENT WEATHER DATA",
+                style: TextStyle( 
+                  fontSize: 20, 
+                  color: farms[index].harvestDate != null 
+                    ? Colors.green.shade800 
+                    : Colors.black,
+                  fontWeight: FontWeight.w500, 
+                ),
+                minFontSize: 12,
                 stepGranularity: 0.1,
-                group: group,
+                maxLines: farms[index].harvestDate != null
+                  ? 1 : 2,
+                // group: group,
               )
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Container(
               alignment: Alignment.topLeft,
               child: AutoSizeText(
-                _convertToWeeks(farms[index].days),
+                farms[index].harvestDate != null 
+                  ? DateFormat.yMMMMd('en_US').format(farms[index].harvestDate)
+                  : DateFormat.yMMMMd('en_US').format(farms[index].endDate),
                 maxLines: 2,
-                stepGranularity: 5,
+                stepGranularity: 0.1,
                 minFontSize: 10,
                 style: TextStyle(
-                  fontSize: 25,
+                  fontSize: 22,
                   fontWeight: FontWeight.bold,
+                  color: farms[index].harvestDate != null 
+                    ? Colors.black
+                    : Colors.red.shade800
                 ),
               ),
             ),
           ),
+          Spacer(),
           Expanded(
-            flex:2,
+            flex:3,
             child: Container(
+              // color: Colors.green,
               alignment: Alignment.center,
-              child: FittedBox(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <IconButton> [
-                    IconButton(
-                      icon: (isPressed) ? Icon(Icons.notifications_active, size:ICON_SIZE, ) 
-                        : Icon(Icons.notifications, size:ICON_SIZE,),
-                      onPressed: () {
-                        setState(() {
-                          isPressed  = !isPressed;
-                        });
-                      },
+              child: Row(
+                children: [
+                  Expanded(
+                    flex:5,
+                    child: InkWell(
+                      onTap: () => _showUpdatePanel(farms[index]),
+                      child: Container(
+                        child: Center(
+                          child: Icon(
+                            Icons.edit,
+                            size: 30,
+                            color: Colors.white
+                          ),
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.blue,
+                          borderRadius: BorderRadius.horizontal(left:Radius.circular(8))
+                        ),
+                      ),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.edit, size:ICON_SIZE, ),
-                      onPressed: () => _showUpdatePanel(farms[index]),
+                  ),
+                  Spacer(),
+                  Expanded(
+                    flex:5,
+                    child: InkWell(
+                      onTap: () => _showDeletePanel(),
+                      child: Container(
+                        child: Center(
+                          child: Icon(
+                            Icons.highlight_remove_outlined,
+                            size: 30,
+                            color: Colors.white,
+                          )
+                        ),
+                        decoration: BoxDecoration(
+                          color: Colors.red,
+                          borderRadius: BorderRadius.horizontal(right:Radius.circular(8))
+                        ),
+                      ),
                     ),
-                    IconButton(
-                      icon: Icon(Icons.delete, size:ICON_SIZE, ),
-                      onPressed: () => _showDeletePanel(),
-                    )
-                  ]
-                ),
+                  )
+                ],
               ),
             ),
           )

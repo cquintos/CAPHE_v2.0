@@ -2,11 +2,15 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:caphe_v2/services/database_service.dart';
 import 'package:flutter/material.dart';
 
-class AlertDeleteConfirmation extends StatelessWidget {
+class AlertDeleteConfirmation extends StatefulWidget {
   AlertDeleteConfirmation(this.id);
   final String id;
 
-  
+  @override
+  _AlertDeleteConfirmationState createState() => _AlertDeleteConfirmationState();
+}
+
+class _AlertDeleteConfirmationState extends State<AlertDeleteConfirmation> {
   @override
   Widget build(BuildContext context) {
     
@@ -23,6 +27,11 @@ class AlertDeleteConfirmation extends StatelessWidget {
                   child: AutoSizeText(
                     "Are you sure to delete this farm?",
                     maxLines: 2,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      fontWeight: FontWeight.w800,
+                      fontSize: 25
+                    ),
                   ),
                 ),
                 Expanded( flex: 1,
@@ -30,15 +39,23 @@ class AlertDeleteConfirmation extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       ElevatedButton(
-                        child: Text("OK"),
+                        child: Text("DELETE"),
+                        style: ElevatedButton.styleFrom( 
+                          primary: Colors.red, 
+                          onPrimary: Colors.white, 
+                        ),
                         onPressed: () async {
+                          await DatabaseService().deleteFarm(this.widget.id);
+                          setState((){});
                           Navigator.of(context, rootNavigator: true).pop();
-                          await DatabaseService().deleteFarm(this.id);
                         },
                       ),
                       ElevatedButton(
                         child: Text("CANCEL"), 
-                        style: ElevatedButton.styleFrom( primary: Colors.red, onPrimary: Colors.white, ),
+                        style: ElevatedButton.styleFrom( 
+                          primary: Colors.grey, 
+                          onPrimary: Colors.white, 
+                        ),
                         onPressed: () {
                           Navigator.of(context, rootNavigator: true).pop();
                         }, 

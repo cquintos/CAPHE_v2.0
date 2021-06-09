@@ -2,20 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:caphe_v2/screens/register_screen/register_screen.dart';
 import 'package:caphe_v2/services/authentication_service.dart';
 
-class LoginTextfieldButtons extends StatefulWidget {
-  LoginTextfieldButtons( this.isLoading, this.signInControllers, this.signInKey, {Key key}) : super(key: key);
-  final bool isLoading;
+class LoginTextfieldButtons extends StatelessWidget {
+  LoginTextfieldButtons(this.signInControllers, this.signInKey, {Key key}) : super(key: key);
   final List<TextEditingController> signInControllers;
   final GlobalKey<FormState> signInKey;
-
-  @override
-  _LoginTextfieldButtonsState createState() => _LoginTextfieldButtonsState(isLoading);
-}
-
-class _LoginTextfieldButtonsState extends State<LoginTextfieldButtons> {
   final AuthenticationService _auth = AuthenticationService();
-  bool isLoading;
-  _LoginTextfieldButtonsState(isLoading);
+
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +18,12 @@ class _LoginTextfieldButtonsState extends State<LoginTextfieldButtons> {
         FittedBox(
           child: ElevatedButton(
             onPressed: () async {
-              if(widget.signInKey.currentState.validate())  {
-                setState(() => isLoading = true );
+              print("wew"); 
+              if(signInKey.currentState.validate())  {
                 _auth.signInEmail( 
-                  email: widget.signInControllers[0].text, 
-                  password: widget.signInControllers[1].text
+                  email: signInControllers[0].text, 
+                  password: signInControllers[1].text
                 );
-                setState(() => isLoading = false );
               }
             },
             child: Text(

@@ -1,13 +1,13 @@
-import 'package:caphe_v2/screens/register_screen/register_recap.dart';
+import 'package:caphe_v2/screens/recap_screen/recap_screen.dart';
 import 'package:flutter/material.dart';
 
-class RegisterContainerButton extends StatelessWidget {
+class Buttons extends StatelessWidget {
   final List<TextEditingController> controllers;
   final FocusNode myFocusNode;
   final GlobalKey<FormState> formKey;
 
-  RegisterContainerButton( this.controllers, this.myFocusNode, this.formKey, );  
-
+  Buttons( this.controllers, this.myFocusNode, this.formKey, );  
+  
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -20,11 +20,13 @@ class RegisterContainerButton extends StatelessWidget {
             child: ElevatedButton(
               onPressed: () {
                 if(formKey.currentState.validate()) {
+                  for(int i = 0; i<5 ; i++)
+                    print(controllers[i].text);
                   return showDialog<String> (
                     context: context,
                     barrierDismissible: false,
                     builder: (BuildContext context) {
-                      return RegisterRecap(controllers);
+                      return RecapScreen(controllers);
                     }
                   );
                 }
@@ -40,8 +42,8 @@ class RegisterContainerButton extends StatelessWidget {
             widthFactor: 0.8,
             child: OutlinedButton(
               onPressed: () {
-                for(int i=0; i<6; i++)
-                  controllers[i].clear();
+                for(int i=0; i<5; i++)
+                  WidgetsBinding.instance.addPostFrameCallback( (_) => controllers[i].clear());
                 myFocusNode.requestFocus();
               },
               child: Text("CLEAR ALL", textAlign: TextAlign.center),

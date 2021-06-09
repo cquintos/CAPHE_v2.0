@@ -24,14 +24,12 @@ dependencies:
   flutter:
     sdk: flutter
   auto_size_text: ^2.1.0
-  # charts_flutter: ^0.9.0
-  circular_bottom_navigation: ^1.0.1
-  cloud_firestore: "^0.16.0+1"
+  cloud_firestore: ^2.2.0
   country_icons: ^1.1.1
   curved_navigation_bar: ^0.3.7
-  firebase_analytics: "7.0.1"
-  firebase_auth: "^0.20.1"
-  firebase_core: "^0.7.0"
+  firebase_analytics: ^8.1.0
+  firebase_auth: ^1.2.0
+  firebase_core: ^1.2.0
   pie_chart: ^5.0.0
   provider: ^5.0.0
   table_calendar: ^2.3.3
@@ -39,15 +37,20 @@ dependencies:
   syncfusion_flutter_calendar: ^19.1.54+1
   validators: ^3.0.0
   flutter_gauge: ^1.0.8
+  image_picker: ^0.7.5+3
+  tflite: ^1.1.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_spinkit: ^5.0.0
   syncfusion_flutter_gauges:  ^19.1.58
+  timelines: ^0.1.0
+  timeline_list: ^0.0.5
+  intl: ^0.17.0
 
-dependency_overrides:
-  intl: ^0.17.0-nullsafety.2
+# dependency_overrides:
+#   intl: ^0.17.0-nullsafety.2
 
 dev_dependencies:
   flutter_test:
@@ -67,6 +70,21 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+    - assets/arabica/
+    - assets/excelsa/
+    - assets/liberica/
+    - assets/robusta/
+    - assets/BerryDevelopment.tflite
+    - assets/BerryRipening.tflite
+    - assets/Flowering.tflite
+    - assets/Inflorescence.tflite
+    - assets/BerryDevelopment.txt
+    - assets/BerryRipening.txt
+    - assets/Flowering.txt
+    - assets/Inflorescence.txt
+
+
+
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

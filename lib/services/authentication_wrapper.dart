@@ -13,6 +13,6 @@ class AuthenticationWrapper extends StatelessWidget {
     final _user = context.watch<User>();
   
     return _user == null ? LoginScreen() 
-      : NavigationScreen();
+      : NavigationScreen(0, 0);
   }
 }

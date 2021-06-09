@@ -28,7 +28,7 @@ class _CardDataState extends State<CardData> {
               alignment: Alignment.bottomLeft,
               child: AutoSizeText(
                 this.widget.title,
-                style: TextStyle( fontSize: 24, color: Colors.green.shade700, fontWeight: FontWeight.w300, ),
+                style: TextStyle( fontSize: 24, color: Colors.green.shade800, fontWeight: FontWeight.w500, ),
                 minFontSize: 8,
                 stepGranularity: 0.1,
                 group: group,

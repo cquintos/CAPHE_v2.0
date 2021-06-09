@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:caphe_v2/shared/header_bar.dart';
 import 'package:caphe_v2/shared/background.dart';
-import 'package:caphe_v2/screens/register_screen/register_container.dart';
+import 'package:caphe_v2/screens/register_screen/reg_layout.dart';
 
 class RegisterScreen extends StatelessWidget {
 
   final List<TextEditingController> controllers = [
-    for(int i=0; i<7; i++)
+    for(int i=0; i<5; i++)
       TextEditingController(), 
   ];
-  final myFocusNode = FocusNode();
-  final formKey = GlobalKey<FormState>();
+  static final myFocusNode = FocusNode();
+  static final formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,9 @@ class RegisterScreen extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Background(),
-            RegisterContainer( controllers, myFocusNode, formKey ),
+            SingleChildScrollView(
+              child: RegLayout( controllers, myFocusNode, formKey ),
+            )
           ],
         ),
       ),

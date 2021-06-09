@@ -11,9 +11,9 @@ class FeedbackScreen extends StatefulWidget {
 class _FeedbackScreenState extends State<FeedbackScreen> {
   @override
   Widget build(BuildContext context) {
-    final _phoneController = TextEditingController();
-    final _userController = TextEditingController();
-    final _provinceController = TextEditingController();
+    // final _phoneController = TextEditingController();
+    // final _userController = TextEditingController();
+    // final _provinceController = TextEditingController();
     double deviceHeight = MediaQuery.of(context).size.height;
 
     return Container(

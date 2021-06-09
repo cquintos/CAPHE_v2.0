@@ -10,13 +10,14 @@ class HomeTitle extends StatelessWidget {
     final farmer = Provider.of<Farmer>(context);
 
     return Container(
-      padding: EdgeInsets.all(20),
-      child: Row( 
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+      padding: EdgeInsets.fromLTRB(26,20,26,0),
+      child: Column( 
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget> [
            Expanded( flex: 2, 
             child: AutoSizeText(
-              "Hello sir ${farmer.nickname}, there are no events yet.",
+              "Hello ${farmer.nickname}",
               maxLines: 2,
               stepGranularity: 2,
               minFontSize: 20,
@@ -26,7 +27,22 @@ class HomeTitle extends StatelessWidget {
               ),
             ),
           ),
-          Spacer( flex: 1 ),
+          Expanded( flex: 2, 
+            child: Align(
+              alignment: Alignment.bottomLeft,
+              child: AutoSizeText(
+                "Summary of your Coffee Farms:",
+                maxLines: 2,
+                stepGranularity: 2,
+                minFontSize: 10,
+                style: TextStyle(
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+          ),
+          // Spacer( flex: 1 ),
           // Expanded( flex: 1,
           //   child: ElevatedButton.icon(
           //     onPressed:() {}, 

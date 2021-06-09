@@ -5,6 +5,8 @@ import 'package:caphe_v2/shared/constants.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'card_data_left.dart';
+import 'package:intl/intl.dart';
+
 
 class CardLayout extends StatefulWidget {
   CardLayout( this.index, {Key key}) : super(key: key);
@@ -46,12 +48,7 @@ class _CardLayoutState extends State<CardLayout> {
         children: <Widget> [
           Expanded( 
             flex:2, 
-            child: Column(
-              children:<Expanded> [
-                Expanded( flex: 1, child: CardData(title: DATA_TITLES[5], data: farms[index].date, group: titleGroup), ),
-                Expanded( flex: 3, child: CardDataLeft(title: DATA_TITLES[0], index: index, isPressed: false, group: titleGroup), ),    
-              ],
-            )
+            child: CardDataLeft(title: DATA_TITLES[0], index: index, isPressed: false, group: titleGroup)
           ),
           VerticalDivider(
             width: 20,
@@ -67,7 +64,7 @@ class _CardLayoutState extends State<CardLayout> {
                 Expanded( flex: 1, child: CardData(title: DATA_TITLES[1], data: farms[index].name.toUpperCase(), group: titleGroup), ),
                 Expanded( flex: 1, child: CardData(title: DATA_TITLES[2], data: farms[index].location.toUpperCase(), group: titleGroup), ),
                 Expanded( flex: 1, child: CardData(title: DATA_TITLES[3], data: farms[index].variety.toUpperCase(), group: titleGroup), ),
-                Expanded( flex: 1, child: CardData(title: DATA_TITLES[4], data: farms[index].stage.toUpperCase(), group: titleGroup), ),
+                Expanded( flex: 1, child: CardData(title: DATA_TITLES[5], data: DateFormat('yMd').format(farms[index].date), group: titleGroup), ),
               ],
             )
           ),

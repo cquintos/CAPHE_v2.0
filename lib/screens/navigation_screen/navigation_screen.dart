@@ -1,8 +1,10 @@
+import 'package:caphe_v2/models/city.dart';
 import 'package:caphe_v2/models/farm.dart';
 import 'package:caphe_v2/models/farmer.dart';
 import 'package:caphe_v2/screens/about_screen/about_screen.dart';
 import 'package:caphe_v2/screens/facts_screen.dart';
-import 'package:caphe_v2/screens/home_screen/add_farm_panel.dart';
+import 'package:caphe_v2/screens/add_farm_screen.dart/add_farm_panel.dart';
+import 'package:caphe_v2/screens/home_screen/slide_builder.dart';
 import 'package:caphe_v2/shared/constants.dart';
 import 'package:caphe_v2/shared/header_bar.dart';
 import 'package:caphe_v2/services/database_service.dart';
@@ -10,34 +12,58 @@ import 'package:caphe_v2/shared/loading.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../services/authentication_service.dart';
-import '../calendar_screen.dart';
 import '../feedback_screen.dart';
 import '../home_screen/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class NavigationScreen extends StatefulWidget {
-  NavigationScreen({Key key}) : super(key: key);
-
+  NavigationScreen(this.startIndex, this.cardIndex, {Key key}) : super(key: key);
+  final int startIndex;
+  final int cardIndex;
   @override
-  _NavigationScreenState createState() => _NavigationScreenState();
+  _NavigationScreenState createState() => _NavigationScreenState(this.startIndex, this.cardIndex);
 }
 
 class _NavigationScreenState extends State<NavigationScreen> {
+  _NavigationScreenState(this.startIndex, this.cardIndex);
+  final int startIndex;
+  int cardIndex;
+
   final AuthenticationService _auth = AuthenticationService();
   final _user = FirebaseAuth.instance.currentUser;
-  int _selectedIndex = 0;
+  int _selectedIndex;
   String headerTitle = "CAPHE V2";
-  List<Widget> _widgetOptions = [HomeScreen(), CalendarScreen(), FactsScreen(), FeedbackScreen()];
+  List<Widget> _widgetOptions = List.empty(growable:true);
+  bool isLoading = false;
+
 
   void _onItemTap (int index) {
     setState(() {
       _selectedIndex = index;
+      cardIndex = 0;
       headerTitle = NAV_TITLES[index];
     });
   }
 
+  _calculateFarms(List<City> cities, List<Farm> farms) {
+    farms.forEach((farm) { 
+      cities.forEach((city) {
+        if(farm.location == city.name) {
+          farm.calculate(city);
+        }
+      });
+    });
+  }
+
+  @override
+  void initState() { 
+    super.initState();
+    _selectedIndex = startIndex;
+  }
+
   @override
   Widget build(BuildContext context) {
+    _widgetOptions = [HomeScreen(), SlideBuilder(this.cardIndex), FactsScreen(), FeedbackScreen()];
 
     return MultiProvider(
       providers: [
@@ -55,9 +81,15 @@ class _NavigationScreenState extends State<NavigationScreen> {
       ], 
       builder: (context, child) {
       final farmer = Provider.of<Farmer>(context);
+      final cities = Provider.of<List<City>>(context);
+      final farms = Provider.of<List<Farm>>(context);
 
-        return farmer == null ? Loading()
+     if(farms != null && cities != null) 
+      _calculateFarms(cities, farms);
+
+      return farmer == null || cities == null || farms == null ? Loading()
         : Scaffold(
+          resizeToAvoidBottomInset: false,
           drawer: Drawer(
             child: ListView(
               children: <Widget>[
@@ -92,12 +124,34 @@ class _NavigationScreenState extends State<NavigationScreen> {
             ),
           ),
           appBar: HeaderBar(text: Text(headerTitle)),
-          body: _widgetOptions.elementAt(_selectedIndex),
+          body: isLoading ? Loading() : _widgetOptions.elementAt(_selectedIndex),
           floatingActionButton: FloatingActionButton(
             backgroundColor: Colors.green.shade800,
             foregroundColor: Colors.white,
             child: Icon(Icons.add), 
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (contect) => AddFarmPanel())),
+            onPressed: () async {
+              setState(() {
+                Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (BuildContext context) => MultiProvider(
+                      providers: [
+                        StreamProvider<List<Farm>>.value(
+                          value: DatabaseService().farms,
+                          initialData: null, 
+                        ),
+                      ],
+                      builder: (context, child) => AddFarmPanel()
+                    ),
+                  )
+                );
+                isLoading = true;
+              });
+              await Future.delayed(Duration(seconds: 1)).then((_) {
+                setState(() {
+                  isLoading = false; 
+                });
+              });
+            }
           ),
           bottomNavigationBar:BottomNavigationBar(
             items: const <BottomNavigationBarItem> [
@@ -106,9 +160,13 @@ class _NavigationScreenState extends State<NavigationScreen> {
                 label: 'Home',
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.calendar_today, color: Colors.green,),
-                label: 'Calendar',
+                icon: Icon(Icons.agriculture_rounded, color: Colors.green,),
+                label: 'Farms',
               ),
+              // BottomNavigationBarItem(
+              //   icon: Icon(Icons.calendar_today, color: Colors.green,),
+              //   label: 'Calendar',
+              // ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.info, color: Colors.green,),
                 label: 'Coffee Facts',

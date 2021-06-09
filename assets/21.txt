@@ -1,0 +1,4 @@
+0 Flowering
+1 Berry Ripening
+2 Berry Development
+3 Inflorescence

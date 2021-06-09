@@ -1,5 +1,7 @@
 import 'package:caphe_v2/services/authentication_wrapper.dart';
+import 'package:caphe_v2/services/weather_service.dart';
 import 'package:flutter/material.dart';
+import 'models/city.dart';
 import 'services/authentication_service.dart';
 import 'package:provider/provider.dart';
 import 'package:caphe_v2/services/routing_service.dart' as router;
@@ -23,6 +25,10 @@ class MyApp extends StatelessWidget {
         StreamProvider(
           create: (context) => context.read<AuthenticationService>().authStateChanges, 
           initialData: null,
+        ),
+        StreamProvider<List<City>>.value(
+          value: WeatherService().weatherData, 
+          initialData: null
         )
       ],
       child: MaterialApp(

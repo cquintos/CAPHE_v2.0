@@ -1,13 +1,13 @@
-import 'package:caphe_v2/screens/register_screen/register_container_button.dart';
-import 'package:caphe_v2/screens/register_screen/register_container_form.dart';
+import 'package:caphe_v2/screens/register_screen/buttons.dart';
+import 'package:caphe_v2/screens/register_screen/register_form.dart';
 import 'package:flutter/material.dart';
 
-class RegisterContainer extends StatelessWidget {
+class RegLayout extends StatelessWidget {
   final List<TextEditingController> controllers;
   final FocusNode myFocusNode;
   final GlobalKey<FormState> formKey;
 
-  RegisterContainer( 
+  RegLayout( 
     this.controllers, 
     this.myFocusNode, 
     this.formKey, 
@@ -31,8 +31,8 @@ class RegisterContainer extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: <Widget>[
-            Expanded( flex:6, child: RegisterContainerForm( controllers, myFocusNode, formKey), ),
-            Expanded( flex:1, child: RegisterContainerButton( controllers, myFocusNode, formKey), ),
+            Expanded( flex:6, child: RegisterForm( controllers, myFocusNode, formKey), ),
+            Expanded( flex:1, child: Buttons( controllers, myFocusNode, formKey), ),
           ],
         ),
       ),
